@@ -1,0 +1,35 @@
+/* Moving scenery stays at the margins, leaving text and controls unobstructed. */
+#main-content{position:relative;isolation:isolate}
+.highway-backdrop{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2;--road-color:#5581ac;--truck-color:#4e7c32}
+.highway-margin{position:absolute;width:54px;height:620px;opacity:.45}
+.margin-0{top:290px;left:0}.margin-1{top:42%;right:0;transform:scaleX(-1)}.margin-2{top:73%;left:0}
+.margin-road{height:100%;width:100%;overflow:visible}
+.road-bed{stroke:var(--road-color);stroke-width:24;opacity:.12}
+.road-center{stroke:var(--road-color);stroke-width:1.5;stroke-dasharray:7 11;opacity:.55;animation:margin-lane-flow 16s linear infinite}
+.margin-truck{position:absolute;left:16px;top:0;color:var(--truck-color);rotate:90deg;animation:margin-delivery 21s linear infinite}
+.margin-1 .margin-truck{animation-delay:-9s}.margin-2 .margin-truck{animation-delay:-15s}
+.margin-stop{position:absolute;top:43%;left:11px;width:33px;height:33px;display:grid;place-items:center;background:#f4d46270;border:1px solid #ba983633;border-radius:50%;color:var(--road-color);animation:road-stop-breathe 6s ease-in-out infinite}
+.margin-pin{position:absolute;left:21px;top:80%;color:var(--truck-color);animation:road-pin-bob 4s ease-in-out infinite}
+.highway-horizon{position:absolute;left:0;right:0;bottom:0;height:25px;overflow:hidden;opacity:.65}
+.horizon-lane{position:absolute;bottom:0;left:0;width:100%;height:3px;background:repeating-linear-gradient(90deg,#517eac66 0 17px,transparent 17px 32px);animation:horizon-lane-flow 6s linear infinite}
+.horizon-truck{position:absolute;bottom:0;left:-45px;color:var(--truck-color);animation:horizon-haul 35s linear infinite}
+.horizon-truck svg{width:29px;height:24px;animation:road-truck-bounce 1.2s ease-in-out infinite}
+.horizon-sun{position:absolute;width:35px;height:35px;background:#f0cf5d55;border-radius:50%;right:13%;top:2px}
+.horizon-hills{position:absolute;bottom:-25px;right:6%;width:160px;height:40px;background:#80a84626;border-radius:50%}
+html[data-theme=dark] .highway-backdrop{--road-color:#8db9ed;--truck-color:#bedb84}
+html[data-theme=dark] .highway-margin{opacity:.5}
+[data-page=home] .margin-0{top:calc(100svh - var(--nav-height) + 65px)}
+[data-page=announcements] .margin-stop{background:#f4d46290}
+[data-page=careers] .margin-stop{background:#8bbb5550}
+/* Home keeps the original large introduction; compact rules apply to inner pages. */
+.home-page .hero{min-height:calc(100svh - var(--nav-height))}
+@keyframes margin-delivery{0%{translate:0 -30px;opacity:0}8%,90%{opacity:1}35%{translate:0 165px}45%{translate:10px 245px}58%{translate:10px 325px}68%{translate:0 390px}100%{translate:0 630px;opacity:0}}
+@keyframes margin-lane-flow{to{stroke-dashoffset:-180}}
+@keyframes road-stop-breathe{50%{box-shadow:0 0 0 7px #85aa4120}}
+@keyframes road-pin-bob{50%{translate:0 -5px}}
+@keyframes horizon-haul{to{left:calc(100% + 45px)}}
+@keyframes horizon-lane-flow{to{background-position:-192px 0}}
+@keyframes road-truck-bounce{50%{translate:0 -1px}}
+@media(max-width:700px){.highway-margin{width:22px;opacity:.3}.margin-truck{left:3px}.margin-truck svg{width:15px}.margin-stop{left:1px;width:20px;height:20px}.margin-stop svg{width:12px}.margin-pin{left:3px}.margin-pin svg{width:12px}.margin-2{display:none}}
+@media(prefers-reduced-motion:reduce){.highway-backdrop *{animation:none!important}}
+html[data-motion=off] .highway-backdrop *{animation:none!important}

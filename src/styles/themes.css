@@ -1,0 +1,171 @@
+/* Theme preference applies to every page and the FAQ overlay. */
+html {
+  color-scheme: light;
+}
+body {
+  background: #fff;
+  transition:
+    background-color 0.25s,
+    color 0.25s;
+}
+.theme-toggle {
+  min-width: 40px;
+  min-height: 40px;
+}
+.theme-toggle svg {
+  animation: page-in 0.25s both;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e4eaf3;
+  --muted: #a1b3cf;
+  --line: #2a3b55;
+  --paper: #11233d;
+}
+html[data-theme="dark"] body {
+  background: #091629;
+  color: var(--ink);
+}
+html[data-theme="dark"] header {
+  background: #0b1b34ed;
+  border-color: #293a53;
+}
+html[data-theme="dark"] .brand-icon {
+  color: #10223d;
+}
+html[data-theme="dark"] nav button:hover {
+  color: #ffe57c;
+}
+html[data-theme="dark"] .theme-toggle {
+  border-color: #374b6a;
+  background: #152742;
+  color: #ffe88d;
+}
+html[data-theme="dark"] .theme-toggle:hover {
+  background: #243754;
+}
+html[data-theme="dark"] .service-strip {
+  background: #102038;
+  border-color: var(--line);
+}
+html[data-theme="dark"] .service-strip > div {
+  border-color: var(--line);
+}
+html[data-theme="dark"] .service-strip svg,
+html[data-theme="dark"] .eyebrow,
+html[data-theme="dark"] .accent-word {
+  color: #ffe26f;
+}
+html[data-theme="dark"] .fleet-section {
+  background: linear-gradient(145deg, #10223e, #0b1a30);
+}
+html[data-theme="dark"] .truck-card {
+  background: #142642;
+  border-color: #30425c;
+  box-shadow: 0 5px 15px #0002;
+}
+html[data-theme="dark"] .truck-card:hover {
+  border-color: #dec55f;
+  box-shadow: 0 25px 45px #0003;
+}
+html[data-theme="dark"] .truck-art {
+  background: radial-gradient(ellipse at 50% 15%, #394f6f, #172740);
+  color: #bfcde2;
+}
+html[data-theme="dark"] .truck-02 {
+  background: radial-gradient(ellipse at 50% 15%, #8a741d, #302b2a);
+  color: #ffec9e;
+}
+html[data-theme="dark"] .truck-03 {
+  background: radial-gradient(ellipse at 50% 15%, #334662, #16253b);
+  color: #b6c7e0;
+}
+html[data-theme="dark"] .sample-label {
+  color: #c7d2e2;
+}
+html[data-theme="dark"] .truck-number {
+  color: #ffffff0b;
+}
+html[data-theme="dark"] .text-link {
+  border-color: #455f86;
+}
+html[data-theme="dark"] .announcement-preview,
+html[data-theme="dark"] .form-card {
+  background: #11233d;
+}
+html[data-theme="dark"] .form-card {
+  border-color: #2a3c57;
+  box-shadow: 0 15px 40px #0002;
+}
+html[data-theme="dark"] .tag {
+  background: #655515;
+  color: #ffefad;
+}
+html[data-theme="dark"] .notice {
+  background: #493e10;
+  color: #eddfa9;
+}
+html[data-theme="dark"] .outline-card,
+html[data-theme="dark"] .news-article {
+  background: #102039;
+}
+html[data-theme="dark"] .outline-card svg {
+  color: #ffe26f;
+}
+html[data-theme="dark"] .gallery-empty {
+  background: #152844;
+  border-color: #3e5578;
+  color: #b5c3d9;
+}
+html[data-theme="dark"] .tabs {
+  background: #07162c;
+}
+html[data-theme="dark"] .tabs .selected {
+  background: #293d5a;
+  color: #fff;
+}
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background: #0b1a30;
+  border-color: #364a69;
+  color: #e5eaf2;
+}
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #93a8c7;
+  opacity: 1;
+}
+html[data-theme="dark"] .chat {
+  background: #102039;
+  border-color: #354967;
+  box-shadow: 0 15px 60px #0007;
+}
+html[data-theme="dark"] .chat-head {
+  background: #07162d;
+}
+html[data-theme="dark"] .bubble {
+  background: #1b2e4b;
+}
+html[data-theme="dark"] .bubble.user {
+  background: #655515;
+  color: #fff4c6;
+}
+html[data-theme="dark"] .chat-input button {
+  color: #ffe57c;
+}
+html[data-theme="dark"] .chat-launch {
+  color: #13243d;
+}
+html[data-theme="dark"] .success {
+  color: #98b4df;
+}
+html[data-theme="dark"] .skip-link {
+  background: #152844;
+  color: #fff;
+}
+@media (max-width: 1050px) {
+  html[data-theme="dark"] nav {
+    background: #0b1b34;
+  }
+}

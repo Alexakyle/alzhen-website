@@ -1,0 +1,5 @@
+/* Contact keeps its directory-first layout; other pages use their original spacious banners. */
+.compact-contact .contact-first{min-height:0;padding-top:30px}
+.compact-contact .contact-heading{margin-bottom:24px}
+.compact-contact .contact-heading h1{font-size:clamp(32px,3.4vw,44px);margin:14px 0}
+.compact-contact .contact-heading h1 br{display:none}

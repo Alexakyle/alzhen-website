@@ -1,0 +1,77 @@
+/* Clear reading rhythm: chapter navigation, concise highlights, then deeper detail. */
+.journey-page>.section{padding-top:clamp(48px,6vw,88px);padding-bottom:clamp(48px,6vw,88px)}
+.journey-page .section-top{gap:24px;flex-wrap:wrap}
+.journey-page .section p{line-height:1.8}
+.about-page{--about-surface:#f1f5fa;--about-border:#d6e2ed;--about-ink:#183d66}
+html[data-theme=dark] .about-page{--about-surface:#122c43;--about-border:#304b64;--about-ink:#edf3fa}
+.about-chapters{display:flex;justify-content:space-between;gap:12px;padding:22px 6%;border-bottom:1px solid var(--about-border);background:var(--journey-card);overflow:auto}
+.about-chapters button{display:flex;align-items:center;gap:10px;white-space:nowrap;min-height:44px;border:0;background:none;color:var(--about-ink);font-size:13px;cursor:pointer}
+.about-chapters small{font-size:10px;color:#698947}.about-chapters button:hover{color:#698947}
+.about-page section[id]{scroll-margin-top:calc(var(--nav-height) + 24px)}
+.about-page .story-section{background:var(--journey-card)}
+.about-page .story-section .story-lead{max-width:880px;font-size:clamp(17px,1.8vw,22px);line-height:1.75;padding:4px 0 4px 24px;border-color:#91af56;margin:32px 0}
+.about-page .est-stamp{border-radius:50%;width:145px;height:145px;display:flex;flex-direction:column;justify-content:center;align-items:center;border:1px dashed #839d5e;background:var(--about-surface);transform:rotate(6deg);flex-shrink:0;box-shadow:8px 8px 0 #c7d6ac22}
+.about-page .est-stamp span{font-size:8px}.about-page .est-stamp strong{font-size:39px}.about-page .est-stamp svg{color:#6b913a;animation:stamp-truck 6s ease-in-out infinite}
+.story-highlights{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--about-border);border-bottom:1px solid var(--about-border);margin:35px 0 22px}
+.story-highlights article{padding:27px 25px;display:grid;gap:10px;border-right:1px solid var(--about-border)}.story-highlights article:first-child{padding-left:0}.story-highlights article:last-child{border:0}
+.story-highlights svg{color:#6b913a;width:26px}.story-highlights strong{font-size:19px;color:var(--about-ink)}.story-highlights span{font-size:12px;opacity:.75}
+.company-background summary{display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;font-size:14px;font-weight:600;list-style:none}.company-background summary::-webkit-details-marker{display:none}.company-background[open] summary svg{rotate:90deg}
+.about-page .story-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px 38px}.about-page .story-columns p{font-size:14px;margin:0}.about-page .story-columns p:first-child:first-letter{float:none;font-size:inherit;margin:0;font-weight:inherit;color:inherit}
+.about-page .history-section{background:var(--about-surface);border-block:1px solid var(--about-border)}
+.about-page .history-card{padding:35px;min-height:230px;border-radius:3px 28px 28px 28px;border:1px solid var(--about-border);box-shadow:8px 8px 0 #6b913a10;gap:30px}
+.about-page .history-card h3{font-size:27px}.about-page .history-card p{max-width:650px;font-size:15px}.about-page .history-number{font-size:clamp(65px,9vw,120px);opacity:.14;line-height:1}
+.about-page .history-stops button{min-height:66px}.about-page .history-stops .chosen .stop-circle{box-shadow:0 0 0 7px #8baa5120}
+.about-page .purpose-section{gap:28px;align-items:stretch}.about-page .purpose-card{padding:clamp(28px,4vw,50px);border-radius:24px;min-height:310px;overflow:hidden}
+.about-page .purpose-card>svg{margin-bottom:22px;animation:purpose-compass 9s ease-in-out infinite}.about-page .purpose-card h2{font-size:29px}.about-page .purpose-card p{font-size:15px;max-width:450px}
+.about-page .purpose-card:after{content:'';position:absolute;width:220px;height:220px;border:1px dashed #ffffff35;border-radius:50%;right:-85px;bottom:-100px;pointer-events:none;animation:purpose-orbit 45s linear infinite}
+.about-page .purpose-card.vision:after{border-color:#61863555}
+.about-page .values-section{background:var(--about-surface)}
+.about-page .core-values{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:35px}
+.about-page .core-values article{padding:28px;border-radius:16px;background:var(--journey-card);border:1px solid var(--about-border);min-height:205px;box-shadow:none}
+.about-page .core-values h3{font-size:19px;margin-top:24px}.about-page .core-values p{font-size:14px}.about-page .value-index{opacity:.35}.about-page .value-icon{background:#8aaa4c18;border-radius:12px;color:#6a903b}
+.about-page .gallery-waiting{min-height:270px;border-radius:22px;border:1px dashed #8ba76c;background:var(--about-surface);padding:40px}.about-page .gallery-waiting p{max-width:460px;margin-inline:auto;font-size:14px}
+/* Give the assistant a stronger, readable silhouette without a surrounding box. */
+button.chat-launch.truck-chat-launch:not(.is-open),button.chat-launch.truck-chat-launch:not(.is-open):hover{width:140px;height:169px;right:22px;bottom:18px}
+.truck-chat-launch .truck-chat-mascot{width:130px;height:118px;filter:drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white) drop-shadow(0 5px 9px #16355035)}
+.truck-chat-launch .truck-chat-cloud{width:136px;padding:12px 10px;font-size:14px;font-weight:700;border:2px solid #244b74;box-shadow:0 4px 14px #173f7020}
+@keyframes stamp-truck{50%{translate:8px 0}}
+@keyframes purpose-compass{50%{rotate:12deg}}
+@keyframes purpose-orbit{to{rotate:360deg}}
+@media(max-width:850px){.about-page .core-values{grid-template-columns:1fr 1fr}.about-page .est-stamp{width:120px;height:120px}.about-page .history-card{padding:25px}.about-chapters{gap:22px}}
+@media(max-width:600px){.about-page .story-columns,.about-page .core-values,.story-highlights{grid-template-columns:1fr}.story-highlights article,.story-highlights article:first-child{padding:20px 0;border-right:0;border-bottom:1px solid var(--about-border)}.story-highlights article{grid-template-columns:32px 1fr;gap:6px 12px}.story-highlights span{grid-column:2}.about-page .est-stamp{width:100px;height:100px}.about-page .est-stamp strong{font-size:30px}.about-page .purpose-section{grid-template-columns:1fr}.about-page .history-number{display:none}.about-page .history-card>svg{width:30px;flex-shrink:0}.about-page .history-card{gap:12px}.about-page .story-section .story-lead{font-size:17px}.about-page .core-values article{min-height:0}.about-page .gallery-waiting{padding:25px}.about-page .gallery-section .section-top{align-items:flex-start}button.chat-launch.truck-chat-launch:not(.is-open),button.chat-launch.truck-chat-launch:not(.is-open):hover{width:112px;height:138px;right:12px;bottom:12px}.truck-chat-launch .truck-chat-mascot{width:105px;height:96px}.truck-chat-launch .truck-chat-cloud{width:110px;font-size:12px;padding:10px 6px}}
+@media(prefers-reduced-motion:reduce){.about-page *{animation:none!important}}
+/* The full background stays visible, with a readable editorial layout. */
+.about-page .company-background{padding:30px;border-radius:18px;background:var(--about-surface);border:1px solid var(--about-border);position:relative;overflow:hidden}
+.about-page .company-background h3{font-size:20px;margin:0 0 22px;color:var(--about-ink)}
+.about-page .company-background:after{content:'';position:absolute;right:-50px;bottom:-60px;width:190px;height:190px;border:18px solid #83a9510b;border-radius:50%;pointer-events:none}
+.about-page .story-columns{column-gap:35px;row-gap:22px}
+.about-page .history-section{padding-top:50px;padding-bottom:50px;background-image:radial-gradient(circle at 1px 1px,#7294b521 1px,transparent 0);background-size:22px 22px}
+.about-page .history-stops{position:relative;gap:12px;padding:15px 0 24px;margin-bottom:10px}
+.about-page .history-stops:before{content:'';position:absolute;top:36px;left:10%;right:10%;height:5px;border-radius:8px;background:repeating-linear-gradient(90deg,#799b5555 0 15px,transparent 15px 24px);animation:milestone-road 8s linear infinite;pointer-events:none}
+.about-page .history-stops button{position:relative;z-index:1;transition:translate .25s,color .25s}.about-page .history-stops button:hover{translate:0 -4px}
+.about-page .history-card{display:grid;grid-template-columns:240px minmax(0,1fr);gap:30px;padding:22px;min-height:0;align-items:center;background:var(--journey-card);border-radius:20px}
+.about-page .history-card>.history-number,.about-page .history-card>svg{display:none}
+.about-page .history-card h3{font-size:25px;margin:10px 0}.about-page .history-card p{margin:0;line-height:1.75;font-size:14px}
+.history-landscape{position:relative;isolation:isolate;height:190px;border-radius:14px;background:linear-gradient(160deg,#dcebf8,#f3f7fb);overflow:hidden}
+.history-sun{position:absolute;top:22px;right:30px;width:43px;height:43px;background:#f7d466;border-radius:50%;box-shadow:0 0 0 11px #f7d46624;animation:landscape-sun 7s ease-in-out infinite}
+.history-cloud{position:absolute;left:24px;top:38px;width:55px;height:17px;background:#fff;border-radius:30px;animation:landscape-cloud 12s ease-in-out infinite alternate}.history-cloud:before{content:'';position:absolute;left:13px;bottom:3px;width:28px;height:28px;background:inherit;border-radius:50%}
+.history-hills{position:absolute;width:300px;height:100px;left:-30px;top:72px;border-radius:50%;background:#98b87670;rotate:-10deg}.history-hills:after{content:'';position:absolute;width:200px;height:100px;left:130px;top:-10px;border-radius:50%;background:#789e5755}
+.history-road{position:absolute;left:-10px;right:-10px;bottom:28px;height:44px;background:#244c75;transform:rotate(-6deg)}
+.history-road:after{content:'';position:absolute;top:24px;width:100%;height:2px;background:repeating-linear-gradient(90deg,#f6d86e 0 18px,transparent 18px 32px);animation:milestone-road 4s linear infinite}
+.history-road svg{position:absolute;bottom:17px;left:40%;color:#f8d76a;fill:#244c75;z-index:1;animation:landscape-drive 5s ease-in-out infinite}
+.history-scene-label{position:absolute;bottom:9px;left:16px;font-size:8px;letter-spacing:.13em;color:#25486a;font-weight:700}
+html[data-theme=dark] .history-landscape{background:linear-gradient(160deg,#173c60,#254765)}html[data-theme=dark] .history-scene-label{color:#d8e6f3}
+/* Section-edge patterns add depth without competing with body copy. */
+.journey-page>.section{position:relative;isolation:isolate}
+.journey-page>.section:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 100% 10%,#669be31a,transparent 38%),radial-gradient(ellipse at 0 100%,#8daf5512,transparent 38%)}
+.about-page .purpose-section{background-image:linear-gradient(135deg,transparent 45%,#a3be7510 45%,#a3be7510 46%,transparent 46%);background-size:60px 60px}
+.about-page .values-section{background-image:radial-gradient(ellipse at 90% 10%,#f5d46520,transparent 55%)}
+.about-page .core-values article{transition:translate .25s,border-color .25s,box-shadow .25s}
+.about-page .core-values article:hover{translate:0 -5px;border-color:#95ae66;box-shadow:0 12px 24px #193e6410}
+.company-background .story-columns p{padding-left:17px;border-left:2px solid #8aaa4c40}
+@keyframes milestone-road{to{background-position:-192px 0}}
+@keyframes landscape-drive{50%{translate:14px -1px}}
+@keyframes landscape-sun{50%{scale:1.06;box-shadow:0 0 0 16px #f7d46612}}
+@keyframes landscape-cloud{to{translate:18px 0}}
+@media(max-width:600px){.about-page .company-background{padding:23px}.about-page .history-card{grid-template-columns:1fr;padding:18px;gap:20px}.history-landscape{height:165px}.about-page .history-stops{gap:5px}.about-page .history-stops button{font-size:10px}.about-page .history-section{padding-block:38px}}
+@media(prefers-reduced-motion:reduce){.about-page *,.about-page *:before,.about-page *:after{animation:none!important}}

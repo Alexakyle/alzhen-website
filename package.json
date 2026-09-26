@@ -1,0 +1,25 @@
+{
+  "name": "alzhen-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.12.2"
+  },
+  "scripts": {
+    "dev": "node_modules/node/bin/node node_modules/vite/bin/vite.js --host localhost --port 3000 --strictPort",
+    "start": "node_modules/node/bin/node node_modules/vite/bin/vite.js --host localhost --port 3000 --strictPort",
+    "build": "node_modules/node/bin/node node_modules/vite/bin/vite.js build",
+    "preview": "node_modules/node/bin/node node_modules/vite/bin/vite.js preview",
+    "test": "node_modules/node/bin/node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "lucide-react": "1.31.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "node": "24.19.0",
+    "vite": "8.0.13"
+  }
+}

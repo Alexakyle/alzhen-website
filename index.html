@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/alzhen-logo.png" />
+    <link rel="preload" href="/fonts/Questrial-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <title>Alzhen Trucking</title>
+    <meta name="description" content="Alzhen Trucking Services — wing van transportation and logistics across Luzon, Visayas, and Mindanao." />
+    <script>
+      try {
+        var t = localStorage.getItem("alzhen-theme");
+        document.documentElement.dataset.theme =
+          t === "dark" || t === "light"
+            ? t
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+      } catch (e) {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

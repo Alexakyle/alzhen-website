@@ -1,0 +1,816 @@
+/* Announcements only: road illustrations, bulletin cards, and mobile layout. */
+.ann-page {
+  --ann-bg: #f3f5f9;
+  --ann-card: #fff;
+  --ann-road-edge: #a0b2ce;
+  --ann-text: #172b4a;
+  --ann-soft: #dce3ee;
+  --ann-border: #d1dae8;
+  background: var(--ann-bg);
+  color: var(--ann-text);
+}
+.ann-hero {
+  padding: 64px 6% 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+  max-width: 1600px;
+  margin: auto;
+}
+.ann-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--ann-card);
+  border: 1px solid var(--ann-border);
+  border-radius: 99px;
+  padding: 8px 15px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.ann-hero h1 {
+  font-size: clamp(60px, 7vw, 105px);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+  margin: 26px 0 30px;
+}
+.ann-hero h1 > span {
+  color: #ddba2e;
+  position: relative;
+  display: inline-block;
+}
+.ann-hero h1 svg {
+  position: absolute;
+  width: 110%;
+  bottom: -14px;
+  left: -5%;
+  height: 23px;
+  stroke: #f0cf4b;
+  stroke-width: 4;
+  fill: none;
+  stroke-linecap: round;
+}
+.ann-hero-copy > p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+.ann-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.ann-scroll > span {
+  height: 44px;
+  width: 44px;
+  border: 1px solid var(--ann-border);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+.ann-scroll:hover > span {
+  transform: translateY(5px);
+  background: #ffe684;
+}
+.ann-scene {
+  position: relative;
+  height: 400px;
+  isolation: isolate;
+  background: var(--ann-soft);
+  border-radius: 48% 48% 20px 20px;
+  overflow: hidden;
+  transform: rotate(2deg);
+}
+.ann-road {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 25px 0 0;
+  z-index: 1;
+}
+.ann-road-dashes {
+  animation: ann-drive 2s linear infinite;
+}
+.ann-sun {
+  position: absolute;
+  right: 14%;
+  top: 8%;
+  height: 78px;
+  width: 78px;
+  background: #ffe168;
+  border-radius: 50%;
+  box-shadow: 0 0 0 15px #ffe16830;
+}
+.ann-cloud {
+  position: absolute;
+  width: 75px;
+  height: 20px;
+  background: #ffffffb0;
+  border-radius: 30px;
+}
+.ann-cloud:before {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: 16px;
+  bottom: 0;
+  background: inherit;
+  border-radius: 50%;
+}
+.cloud-one {
+  top: 15%;
+  left: 26%;
+  animation: ann-cloud 7s ease-in-out infinite alternate;
+}
+.cloud-two {
+  top: 39%;
+  right: 7%;
+  transform: scale(0.7);
+  animation: ann-cloud 9s ease-in-out infinite alternate;
+}
+.ann-road-sign {
+  position: absolute;
+  z-index: 3;
+  top: 24%;
+  left: 26%;
+  transform: rotate(-7deg);
+  border: 5px solid #fff7d7;
+  outline: 2px solid #1c3253;
+  background: #243c60;
+  color: #fff7d7;
+  padding: 12px 17px;
+  box-shadow: 6px 7px 0 #15253e1f;
+}
+.ann-road-sign:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 48%;
+  width: 8px;
+  height: 65px;
+  background: #667f7a;
+  z-index: -1;
+}
+.ann-road-sign > span {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+.ann-road-sign strong {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 24px;
+  line-height: 1.5;
+}
+.ann-road-sign small {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+.ann-little-truck {
+  position: absolute;
+  left: 13%;
+  bottom: 14%;
+  z-index: 3;
+  color: #ffdf5e;
+  transform: rotate(-2deg);
+  animation: ann-truck 1.5s ease-in-out infinite;
+}
+.ann-little-truck svg {
+  filter: drop-shadow(3px 4px 0 #071325);
+}
+.ann-little-truck span {
+  position: absolute;
+  left: 0;
+  top: -15px;
+  white-space: nowrap;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--ann-text);
+}
+.ann-pin {
+  position: absolute;
+  z-index: 3;
+  right: 11%;
+  bottom: 31%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #e9c639;
+}
+.ann-pin svg {
+  stroke: #fff9df;
+}
+.ann-pin span {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  background: #fff9df;
+  color: #715f18;
+  padding: 3px 6px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+.ann-cone {
+  position: absolute;
+  left: 49%;
+  bottom: 10%;
+  z-index: 3;
+  color: #d8b732;
+}
+.ann-scene-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--ann-text);
+}
+.ann-spark {
+  position: absolute;
+  color: #dfbf3e;
+  font-size: 33px;
+}
+.spark-one {
+  right: 8%;
+  top: 5%;
+}
+.spark-two {
+  left: 12%;
+  top: 30%;
+  font-size: 22px;
+}
+.ann-divider {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 25px;
+  padding: 17px 4%;
+  background: #152b4b;
+  color: #f8de75;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  border-top: 4px solid #f4d660;
+  transform: rotate(-1deg);
+  width: 100%;
+  box-shadow: 0 8px 0 #1429490a;
+}
+.ann-divider svg {
+  flex-shrink: 0;
+}
+.ann-updates {
+  padding: 75px 6% 90px;
+  max-width: 1600px;
+  margin: auto;
+  scroll-margin-top: 100px;
+}
+.ann-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+.ann-section-title .eyebrow {
+  margin-bottom: 12px;
+}
+.ann-section-title h2 {
+  margin: 0;
+}
+.ann-outline-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--ann-border);
+  border-radius: 50px;
+  padding: 10px 15px;
+  white-space: nowrap;
+}
+.ann-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(250px, 1fr);
+  gap: 35px;
+  align-items: start;
+}
+.ann-feature {
+  background: var(--ann-card);
+  border: 1px solid var(--ann-border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 12px 0 -6px var(--ann-border),
+    0 20px 45px #152b4b0a;
+}
+.ann-feature-art {
+  position: relative;
+  min-height: 280px;
+  background: #192f50;
+  overflow: hidden;
+  color: #fff6d4;
+  padding: 32px;
+  isolation: isolate;
+}
+.ann-art-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(#ffffff09 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff09 1px, transparent 1px);
+  background-size: 28px 28px;
+  z-index: -1;
+}
+.ann-sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 3px;
+  background: #fbe073;
+  color: #243145;
+  padding: 7px 11px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transform: rotate(-5deg);
+}
+.ann-art-title {
+  display: block;
+  font-size: clamp(34px, 3.5vw, 56px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  margin-top: 24px;
+  position: relative;
+  z-index: 2;
+}
+.ann-art-title em {
+  font-style: normal;
+  color: #ffe270;
+}
+.ann-megaphone {
+  position: absolute;
+  right: 10%;
+  top: 22%;
+  color: #ffe16b;
+  transform: rotate(-16deg);
+  background: #284268;
+  border-radius: 50%;
+  padding: 25px;
+  box-shadow: 0 0 0 14px #ffffff04;
+  animation: ann-sway 5s ease-in-out infinite;
+}
+.ann-art-road {
+  position: absolute;
+  right: -30px;
+  bottom: 34px;
+  width: 42%;
+  height: 70px;
+  border-top: 1px solid #6986b2;
+  border-bottom: 1px solid #6986b2;
+  transform: rotate(-12deg);
+  background: repeating-linear-gradient(
+      90deg,
+      transparent 0 15px,
+      #ede0ab 15px 30px,
+      transparent 30px 45px
+    )
+    center/100% 2px no-repeat;
+}
+.ann-art-road svg {
+  position: absolute;
+  left: 40%;
+  top: -8px;
+  background: #192f50;
+  color: #f4db75;
+  animation: ann-truck 1.4s ease-in-out infinite;
+}
+.ann-art-number {
+  position: absolute;
+  right: 22px;
+  bottom: 13px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #b2c1d7;
+}
+.ann-feature-body {
+  padding: 32px;
+}
+.ann-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.ann-category {
+  background: #e2e8f0;
+  color: #2c4264;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.09em;
+}
+.ann-feature h3 {
+  font-size: clamp(27px, 3vw, 39px);
+  max-width: 550px;
+  line-height: 1.15;
+}
+.ann-feature-body > p {
+  font-size: 17px;
+  max-width: 570px;
+}
+.ann-date {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  color: var(--muted);
+  margin: 23px 0;
+}
+.ann-read {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 1px dashed var(--ann-border);
+  padding: 20px 0 0;
+  font-weight: 700;
+  font-size: 14px;
+  min-height: 50px;
+}
+.ann-read svg {
+  transition: transform 0.25s;
+}
+.ann-read:hover svg {
+  transform: translate(3px, -3px);
+}
+.ann-details {
+  border-left: 3px solid #edcf58;
+  padding: 2px 0 2px 18px;
+  margin: 20px 0;
+  animation: page-in 0.25s ease;
+}
+.ann-details p {
+  font-size: 16px;
+}
+.ann-details p:last-child {
+  margin-bottom: 0;
+}
+.ann-roadside {
+  padding-top: 12px;
+}
+.ann-note {
+  position: relative;
+  background: #fff3c4;
+  padding: 38px 28px 25px;
+  transform: rotate(2deg);
+  border-radius: 2px 2px 20px 2px;
+  color: #645415;
+  box-shadow: 5px 8px 0 #152b4b08;
+}
+.ann-note-pin {
+  position: absolute;
+  top: -11px;
+  left: 38%;
+  width: 75px;
+  height: 27px;
+  background: #e5d07d99;
+  transform: rotate(-6deg);
+}
+.ann-note .eyebrow {
+  font-size: 9px;
+  color: #a88e24;
+}
+.ann-note h3 {
+  font-size: 31px;
+  line-height: 1.1;
+}
+.ann-note p {
+  color: #9e8522;
+  font-size: 15px;
+}
+.ann-note-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px dashed #dbc054;
+  font-size: 11px;
+}
+.ann-note-footer svg {
+  color: #d2b12d;
+  flex-shrink: 0;
+}
+.ann-mile-marker {
+  margin-top: 32px;
+  padding: 30px 24px;
+  text-align: center;
+  border: 1px solid var(--ann-border);
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+.ann-mile-marker > span {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+}
+.ann-mile-marker > svg {
+  margin: 18px auto 12px;
+  color: #d4b435;
+}
+.ann-mile-marker > strong {
+  display: block;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+.ann-mile-marker p {
+  font-size: 14px;
+  margin: 9px 0 12px;
+}
+.ann-mini-road {
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #dcc25b 0 12px, transparent 12px 24px);
+  opacity: 0.6;
+  margin-top: 25px;
+  animation: ann-drive 3s linear infinite;
+}
+@keyframes ann-drive {
+  to {
+    stroke-dashoffset: -60;
+    background-position: -48px 0;
+  }
+}
+@keyframes ann-truck {
+  50% {
+    translate: 0 -3px;
+  }
+}
+@keyframes ann-cloud {
+  to {
+    translate: 15px 0;
+  }
+}
+@keyframes ann-sway {
+  50% {
+    transform: rotate(-8deg) translateY(-5px);
+  }
+}
+html[data-theme="dark"] .ann-page {
+  --ann-bg: #0a182e;
+  --ann-card: #122440;
+  --ann-road-edge: #455f85;
+  --ann-text: #e3e8f0;
+  --ann-soft: #192a43;
+  --ann-border: #2f405a;
+}
+html[data-theme="dark"] .ann-hero h1 > span {
+  color: #ffe373;
+}
+html[data-theme="dark"] .ann-category {
+  background: #27364d;
+  color: #bbc9df;
+}
+html[data-theme="dark"] .ann-note {
+  background: #625315;
+  color: #fff4c7;
+}
+html[data-theme="dark"] .ann-note p {
+  color: #e8d690;
+}
+html[data-theme="dark"] .ann-note .eyebrow {
+  color: #ebd787;
+}
+html[data-theme="dark"] .ann-scroll:hover > span {
+  background: #665616;
+}
+@media (min-width: 1600px) {
+  .ann-hero h1 {
+    font-size: 108px;
+  }
+}
+@media (max-width: 1000px) {
+  .ann-hero {
+    gap: 20px;
+  }
+  .ann-scene {
+    height: 340px;
+  }
+  .ann-road-sign {
+    left: 20%;
+    padding: 9px 12px;
+  }
+  .ann-road-sign strong {
+    font-size: 20px;
+  }
+  .ann-content-grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(230px, 1fr);
+    gap: 22px;
+  }
+  .ann-megaphone {
+    right: 5%;
+    padding: 15px;
+  }
+  .ann-megaphone svg {
+    width: 70px;
+  }
+  .ann-note {
+    padding: 32px 22px 24px;
+  }
+  .ann-feature-body {
+    padding: 26px;
+  }
+  .ann-outline-label {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .ann-hero {
+    grid-template-columns: 1fr;
+    padding-top: 45px;
+    gap: 30px;
+  }
+  .ann-hero h1 {
+    font-size: 80px;
+  }
+  .ann-hero-copy > p {
+    font-size: 17px;
+  }
+  .ann-scene {
+    height: 350px;
+    max-width: 530px;
+    width: 100%;
+    margin: 0 auto;
+    transform: rotate(1deg);
+  }
+  .ann-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .ann-roadside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 18px;
+  }
+  .ann-mile-marker {
+    margin: 0;
+  }
+  .ann-feature-art {
+    min-height: 280px;
+  }
+  .ann-art-title {
+    font-size: 48px;
+  }
+  .ann-megaphone {
+    right: 12%;
+    padding: 22px;
+  }
+  .ann-megaphone svg {
+    width: 90px;
+  }
+  .ann-updates {
+    padding-top: 55px;
+  }
+  .ann-divider {
+    justify-content: flex-start;
+    gap: 25px;
+  }
+  .ann-divider span {
+    flex-shrink: 0;
+  }
+  .ann-section-title h2 {
+    font-size: 36px;
+  }
+  .ann-note h3 {
+    font-size: 27px;
+  }
+}
+@media (max-width: 480px) {
+  .ann-hero h1 {
+    font-size: 68px;
+  }
+  .ann-hero {
+    padding-top: 35px;
+  }
+  .ann-hero-copy > p br {
+    display: none;
+  }
+  .ann-scene {
+    height: 305px;
+  }
+  .ann-road-sign {
+    top: 21%;
+    left: 24%;
+    border-width: 4px;
+  }
+  .ann-road-sign strong {
+    font-size: 19px;
+  }
+  .ann-sun {
+    width: 57px;
+    height: 57px;
+  }
+  .ann-little-truck {
+    left: 10%;
+    bottom: 13%;
+  }
+  .ann-little-truck svg {
+    width: 61px;
+  }
+  .ann-feature-art {
+    min-height: 265px;
+    padding: 25px;
+  }
+  .ann-art-title {
+    font-size: 39px;
+  }
+  .ann-megaphone {
+    right: 4%;
+    top: 26%;
+    padding: 14px;
+    opacity: 0.85;
+  }
+  .ann-megaphone svg {
+    width: 60px;
+    height: 60px;
+  }
+  .ann-art-road {
+    width: 49%;
+    bottom: 29px;
+  }
+  .ann-feature-body {
+    padding: 24px;
+  }
+  .ann-meta {
+    gap: 8px;
+    font-size: 11px;
+  }
+  .ann-feature-body > p {
+    font-size: 16px;
+  }
+  .ann-date {
+    font-size: 11px;
+    align-items: start;
+  }
+  .ann-date svg {
+    flex-shrink: 0;
+  }
+  .ann-roadside {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .ann-note {
+    transform: rotate(1deg);
+    padding: 35px 26px 26px;
+  }
+  .ann-note h3 {
+    font-size: 32px;
+  }
+  .ann-note p {
+    font-size: 16px;
+  }
+  .ann-note-footer {
+    font-size: 12px;
+  }
+  .ann-mile-marker {
+    padding: 25px;
+  }
+  .ann-scene-caption {
+    font-size: 7px;
+  }
+  .ann-section-title h2 {
+    font-size: 32px;
+  }
+  .ann-updates {
+    padding-bottom: 55px;
+  }
+  .ann-pill {
+    font-size: 10px;
+  }
+  .ann-scroll {
+    min-height: 48px;
+  }
+  .ann-art-title {
+    max-width: 230px;
+  }
+  .ann-feature h3 {
+    font-size: 29px;
+  }
+}
+
+.announcement-list{display:grid;gap:24px;min-width:0;align-content:start}
+.announcement-upload{display:block;width:100%;height:100%;min-height:260px;object-fit:cover}
+.ann-details[hidden]{display:none}

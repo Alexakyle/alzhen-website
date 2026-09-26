@@ -1,0 +1,106 @@
+[
+  {
+    "id": "10",
+    "name": "10-Wheeler Wing Van",
+    "maxLoad": "20 tonnes",
+    "dimensions": "8 ft × 7.5 ft × 32 ft",
+    "commonCargos": [
+      {
+        "id": "cargo-1",
+        "name": "Agricultural products",
+        "imageUrl": "/images/company/agriproducts.jpg",
+        "imageAlt": "Fresh produce in crates — representative cargo"
+      },
+      {
+        "id": "cargo-2",
+        "name": "Posts",
+        "imageUrl": "/images/company/loading-metal.png",
+        "imageAlt": "Metal sections being loaded into an Alzhen wing van"
+      },
+      {
+        "id": "cargo-3",
+        "name": "Construction products",
+        "imageUrl": "/images/company/materials-delivery.png",
+        "imageAlt": "Construction materials carried by Alzhen"
+      },
+      {
+        "id": "cargo-4",
+        "name": "Machinery",
+        "imageUrl": "/images/company/equipment-haul.png",
+        "imageAlt": "Machinery inside an Alzhen wing van"
+      },
+      {
+        "id": "cargo-5",
+        "name": "Commercial goods",
+        "imageUrl": "/images/company/boxed-cargo.png",
+        "imageAlt": "Boxed commercial cargo loaded for transport"
+      },
+      {
+        "id": "cargo-6",
+        "name": "Appliances",
+        "imageUrl": "/images/company/appliances.png",
+        "imageAlt": "Washing machines — representative appliance cargo"
+      }
+    ],
+    "images": [
+      {
+        "url": "/images/company/hino-enhanced.png",
+        "alt": "10-Wheeler Wing Van"
+      }
+    ],
+    "truckType": "10W",
+    "volume": "40–55 CBM"
+  },
+  {
+    "id": "12",
+    "name": "12-Wheeler Wing Van",
+    "maxLoad": "20 tonnes",
+    "dimensions": "8 ft × 7.5 ft × 32 ft",
+    "commonCargos": [
+      {
+        "id": "cargo-1",
+        "name": "Agricultural products",
+        "imageUrl": "/images/company/agriproducts.jpg",
+        "imageAlt": "Fresh produce in crates — representative cargo"
+      },
+      {
+        "id": "cargo-2",
+        "name": "Posts",
+        "imageUrl": "/images/company/loading-metal.png",
+        "imageAlt": "Metal sections being loaded into an Alzhen wing van"
+      },
+      {
+        "id": "cargo-3",
+        "name": "Construction products",
+        "imageUrl": "/images/company/materials-delivery.png",
+        "imageAlt": "Construction materials carried by Alzhen"
+      },
+      {
+        "id": "cargo-4",
+        "name": "Machinery",
+        "imageUrl": "/images/company/equipment-haul.png",
+        "imageAlt": "Machinery inside an Alzhen wing van"
+      },
+      {
+        "id": "cargo-5",
+        "name": "Commercial goods",
+        "imageUrl": "/images/company/boxed-cargo.png",
+        "imageAlt": "Boxed commercial cargo loaded for transport"
+      },
+      {
+        "id": "cargo-6",
+        "name": "Appliances",
+        "imageUrl": "/images/company/appliances.png",
+        "imageAlt": "Washing machines — representative appliance cargo"
+      }
+    ],
+    "images": [
+      {
+        "url": "/images/company/fuso-enhanced.png",
+        "alt": "12-Wheeler Wing Van"
+      }
+    ],
+    "truckType": "12W",
+    "volume": "40–55 CBM"
+  }
+]

@@ -1,0 +1,109 @@
+/* Content choreography and mouse/touch feedback. No blocking page overlay. */
+main{animation:content-page .38s ease-out both}
+.road-banner-copy>.road-label,.ann-direct-heading .ann-pill{animation:info-enter .65s .03s cubic-bezier(.16,1,.3,1) both}
+.road-banner h1,.ann-direct-heading h1{animation:info-enter .8s .1s cubic-bezier(.16,1,.3,1) both}
+.road-banner-copy>p,.ann-direct-heading p{animation:info-enter .85s .2s cubic-bezier(.16,1,.3,1) both}
+.road-banner-copy>.button,.road-banner-copy>.text-link{animation:info-enter .85s .28s cubic-bezier(.16,1,.3,1) backwards}
+.page-scene{animation:scene-entrance 1s .15s cubic-bezier(.16,1,.3,1) backwards}
+.page-scene .scene-history-sign,.page-scene .scene-people-card,.page-scene .scene-envelope{transition:rotate .4s,box-shadow .4s}
+.motion-item.motion-arrived{animation:section-reveal .85s var(--arrival-delay,0ms) cubic-bezier(.16,1,.3,1) backwards}
+.motion-arrived>.section-top{animation:info-enter .75s .06s backwards}
+.motion-arrived>.section-top .text-link,.motion-arrived>.section-top .pill-filters{animation:info-enter .75s .18s backwards}
+.story-section.motion-arrived .story-lead{animation:info-enter .85s .2s backwards}
+.story-section.motion-arrived .story-columns p{animation:info-enter .85s .25s backwards}
+.story-section.motion-arrived .story-columns p:nth-child(2){animation-delay:.32s}
+.story-section.motion-arrived .story-columns p:nth-child(3){animation-delay:.39s}
+.story-section.motion-arrived .story-columns p:nth-child(4){animation-delay:.46s}
+.form-card.motion-arrived label{animation:info-enter .65s .1s backwards}
+.form-card.motion-arrived label:nth-child(2){animation-delay:.16s}
+.form-card.motion-arrived label:nth-child(3){animation-delay:.22s}
+.form-card.motion-arrived label:nth-child(4){animation-delay:.28s}
+.history-card,.gallery-waiting{animation:panel-appear .45s cubic-bezier(.16,1,.3,1) both}
+.service-accordions details[open] .service-detail,.fleet-details[open] p,.ann-details{animation:panel-appear .4s ease both}
+.button{isolation:isolate}.button:after{background:linear-gradient(90deg,transparent,#fff8,transparent)}
+.button:hover{box-shadow:0 9px 23px #143e7020;transform:translateY(-3px)}
+.button svg,.text-link svg,.journey-action svg,.ann-read svg{transition:translate .25s,rotate .25s}
+.button:hover svg,.text-link:hover svg,.journey-action:hover svg{translate:3px -2px}
+.text-link{position:relative}.text-link:after{content:'';position:absolute;bottom:-1px;left:0;width:100%;height:2px;background:#d1a81e;transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.text-link:hover:after,.text-link:focus-visible:after{transform:scaleX(1)}
+.truck-card,.core-values article,.purpose-card,.ann-feature,.form-card{position:relative;transition:transform .35s,box-shadow .35s,border-color .35s;isolation:isolate}
+.truck-card:after,.core-values article:after,.purpose-card:before,.ann-feature:after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--pointer-x,50%) var(--pointer-y,30%),#72aaff1d,transparent 55%);pointer-events:none;opacity:0;transition:opacity .3s;z-index:4}
+.truck-card:hover:after,.core-values article:hover:after,.purpose-card:hover:before,.ann-feature:hover:after{opacity:1}
+.service-accordions summary:hover,.fleet-details summary:hover{color:#3269aa}.service-accordions summary:hover .service-icon{transform:rotate(-9deg) scale(1.1)}
+.core-values article:hover .value-icon svg{animation:small-salute .6s ease}
+.tabs button,.pill-filters button,.region-buttons button{transition:background-color .25s,color .25s,transform .25s,box-shadow .25s}
+.tabs button.selected,.pill-filters button.selected,.region-buttons button.selected{animation:selection-pop .35s ease both}
+input:hover,textarea:hover,select:hover{border-color:#7a9dc9}
+input:focus,textarea:focus,select:focus{outline:2px solid #c6a12d;box-shadow:0 0 0 5px #e7c84d19}
+.contact-detail{transition:padding-left .3s,border-color .3s}.contact-detail:hover{padding-left:8px;border-color:#d5af33}
+nav button:hover{color:#2a62a9}nav button.active:after{animation:nav-trace .4s ease both}
+.company-logo{transition:transform .35s,box-shadow .35s}.brand:hover .company-logo{transform:translateY(-2px);box-shadow:0 5px 15px #28579b20}
+/* OJT-inspired ambient movement: moving light and line layers rather than moving text. */
+.motion-atmosphere .atmosphere-line{height:2px;filter:drop-shadow(0 0 3px #6596dc30)}
+.motion-atmosphere .glow-blue{animation-duration:10s}.motion-atmosphere .glow-gold{animation-duration:14s}
+.page-scene .scene-halo{animation:halo-drift 10s ease-in-out infinite alternate}
+.journey-page>.section:after{content:'';position:absolute;pointer-events:none;inset:0;background:linear-gradient(112deg,transparent 38%,#79a7e00b 48%,transparent 58%);background-size:220% 100%;animation:ambient-sweep 16s ease-in-out infinite;z-index:-1}
+.ann-updates{position:relative;isolation:isolate}.ann-updates:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 100% 0%,#80aff320,transparent 50%),radial-gradient(ellipse at 0% 100%,#ffdb611c,transparent 50%);background-size:130% 130%;animation:section-light 13s ease-in-out infinite alternate}
+.scene-people-card>svg{animation:small-salute 5s ease-in-out infinite}.scene-envelope>svg{animation:send-float 5s ease-in-out infinite}
+.scene-destination svg,.scene-address svg{animation:pin-hop 3.5s ease-in-out infinite}
+.bulletin-motion>svg:first-child{animation:small-salute 5s ease-in-out infinite}
+.chat-launch{transition:transform .25s,box-shadow .25s}.chat-launch:hover{transform:translateY(-4px);box-shadow:0 9px 24px #14396635}
+html[data-theme=dark] .service-accordions summary:hover,html[data-theme=dark] .fleet-details summary:hover{color:#f6d76c}
+@media(hover:hover) and (pointer:fine){.truck-card:hover,.core-values article:hover,.ann-feature:hover{transform:perspective(1000px) rotateX(var(--rotate-x,0deg)) rotateY(var(--rotate-y,0deg)) translateY(-5px);box-shadow:0 17px 35px #17365d16;border-color:#8baad0}.purpose-card:hover{transform:perspective(1000px) rotateX(var(--rotate-x,0deg)) rotateY(var(--rotate-y,0deg)) translateY(-4px)}.page-scene:hover .scene-history-sign,.page-scene:hover .scene-people-card,.page-scene:hover .scene-envelope{rotate:2deg;box-shadow:9px 12px 0 #24487c20}}
+@media(hover:none){.button:active,.ann-read:active,.journey-action:active,.pill-filters button:active,.region-buttons button:active,.tabs button:active{transform:scale(.97)}.truck-card:after,.core-values article:after,.purpose-card:before,.ann-feature:after{display:none}}
+@media(max-width:540px){.motion-item.motion-arrived{animation-duration:.65s;animation-delay:0s}.page-scene{animation-duration:.8s}.road-banner h1,.ann-direct-heading h1{animation-duration:.65s}.road-banner-copy>p{animation-duration:.7s}.form-card.motion-arrived label{animation-delay:0s}.story-section.motion-arrived .story-columns p{animation-delay:.1s}.journey-page>.section:after{animation-duration:22s}}
+@keyframes content-page{from{opacity:.55;translate:0 7px}to{opacity:1;translate:0 0}}
+@keyframes info-enter{from{opacity:0;translate:0 22px}to{opacity:1;translate:0 0}}
+@keyframes section-reveal{from{opacity:.2;translate:0 26px}to{opacity:1;translate:0 0}}
+@keyframes scene-entrance{from{opacity:0;translate:20px 10px;scale:.97}to{opacity:1;translate:0 0;scale:1}}
+@keyframes panel-appear{from{opacity:.3;translate:0 10px}to{opacity:1;translate:0 0}}
+@keyframes selection-pop{0%{scale:.95}65%{scale:1.025}100%{scale:1}}
+@keyframes small-salute{0%,75%,100%{rotate:0deg}83%{rotate:-10deg}92%{rotate:6deg}}
+@keyframes nav-trace{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+@keyframes halo-drift{to{translate:-13px 12px;scale:1.06}}
+@keyframes ambient-sweep{to{background-position:200% 0}}
+@keyframes send-float{50%{translate:5px -6px;rotate:-5deg}}
+/* Automatic decorative motion: works without hovering, including touch screens. */
+:root{--logo-green:#74a939;--logo-green-soft:#91bc4f}
+.ambient-route{position:absolute;width:52%;height:220px;right:-3%;bottom:3%;color:#416fa4;opacity:.55}
+.ambient-route-dashes{animation:route-flow 5s linear infinite}
+.ambient-mini-truck{position:absolute;right:5%;bottom:12%;color:#598d2c;animation:tiny-delivery 16s linear infinite;opacity:.7}
+.ambient-token{position:absolute;display:grid;place-items:center;width:42px;height:42px;border:1px solid #71a63a65;border-radius:12px;color:#558228;background:#91bc4f12;animation:token-bob 7s ease-in-out infinite}
+.token-cargo{right:9%;top:13%;rotate:12deg;animation-delay:-2s}
+.token-leaf{right:43%;top:42%;rotate:-15deg;animation-delay:-4s}
+.token-page{right:28%;bottom:9%;animation-delay:-1s;color:#34699e;border-color:#34699e55}
+.token-page svg{display:none}
+[data-page=home] .motif-fleet,[data-page=trucks] .motif-fleet,[data-page=about] .motif-story,[data-page=announcements] .motif-news,[data-page=careers] .motif-people,[data-page=contact] .motif-contact{display:block}
+[data-page=announcements] .ambient-route{bottom:-75px;width:38%}
+[data-page=announcements] .token-cargo,[data-page=announcements] .token-leaf{display:none}
+[data-page=about] .ambient-route{rotate:-8deg}
+[data-page=careers] .ambient-token{border-radius:50%}
+[data-page=contact] .token-page{animation:letter-drift 8s ease-in-out infinite}
+.scene-star{color:var(--logo-green)!important;animation:star-breathe 6s ease-in-out infinite}
+.scene-cloud{animation:cloud-meander 15s ease-in-out infinite alternate}
+.scene-truck{animation:truck-idle 4s ease-in-out infinite}
+.scene-truck:nth-of-type(even){animation-delay:-2s}
+.scene-history-sign{animation:token-bob 8s ease-in-out infinite}
+.scene-destination{color:#63952f}
+.scene-value.value-safety{background:#dceec9;color:#36591f}
+.scene-address.destination{background:#426d2b;color:#fff}
+.core-values article .value-icon svg,.service-accordions .service-icon svg{animation:icon-idle 6s ease-in-out infinite}
+.core-values article:nth-child(2n) .value-icon svg,.service-accordions details:nth-child(2n) .service-icon svg{animation-delay:-3s}
+.value-icon,.service-icon{box-shadow:inset 0 -2px 0 #74a93955}
+.scene-road-markings{stroke:#f6d465}
+.ann-megaphone{animation:token-bob 6s ease-in-out infinite}
+.journey-card{border-bottom:3px solid var(--logo-green)}
+html[data-theme=dark] .ambient-route{color:#86b6eb;opacity:.45}
+html[data-theme=dark] .ambient-token,html[data-theme=dark] .ambient-mini-truck{color:#b2d877;border-color:#a1ca6266}
+html[data-theme=dark] .scene-value.value-safety{background:#314e2b;color:#d3edb7}
+@keyframes route-flow{to{stroke-dashoffset:-105}}
+@keyframes tiny-delivery{0%{translate:70px 0;opacity:0}10%,85%{opacity:.7}100%{translate:-280px 0;opacity:0}}
+@keyframes token-bob{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes letter-drift{0%,100%{translate:0 0;rotate:-5deg}50%{translate:9px -8px;rotate:5deg}}
+@keyframes truck-idle{0%,100%{translate:0 0}35%{translate:4px -3px}70%{translate:-3px -1px}}
+@keyframes cloud-meander{to{translate:24px 3px}}
+@keyframes star-breathe{50%{scale:1.2;rotate:25deg}}
+@keyframes icon-idle{0%,65%,100%{translate:0 0;rotate:0deg}77%{translate:0 -4px;rotate:-8deg}88%{translate:0 -2px;rotate:5deg}}
+@media(max-width:600px){.ambient-route{width:85%;opacity:.3;bottom:0}.ambient-token{width:30px;height:30px}.ambient-token svg{width:18px}.token-leaf{right:3%;top:50%}.token-cargo{right:4%;top:7%}.ambient-mini-truck{bottom:4%}.token-page{right:14%;bottom:9%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.truck-card:hover,.core-values article:hover,.ann-feature:hover,.purpose-card:hover{transform:none!important}}
+html[data-motion=off] *,html[data-motion=off] *:before,html[data-motion=off] *:after{animation:none!important;transition:none!important}

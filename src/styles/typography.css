@@ -1,0 +1,24 @@
+/* The same Questrial family used in the original OJT website. */
+@font-face{font-family:Questrial;src:url('/fonts/Questrial-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+:root{--font-site:Questrial,'Century Gothic',Arial,sans-serif}
+body,button,input,textarea,select{font-family:var(--font-site)}
+body{font-size:17px;line-height:1.65}
+h1,h2,h3,h4{font-family:var(--font-site);font-weight:600;letter-spacing:-.025em}
+.hero h1,.road-banner h1,.ann-hero h1,.ann-direct-heading h1{font-weight:600;letter-spacing:-.04em;line-height:1.08}
+.hero h1 em,.road-banner h1 em{font-weight:400;letter-spacing:-.035em}
+h2,.intro h2,.coverage-copy h2{letter-spacing:-.028em;line-height:1.15}
+.eyebrow,.road-label,.ann-pill{font-weight:600;letter-spacing:.15em}
+nav button{font-family:var(--font-site);font-size:14px;font-weight:600;letter-spacing:0}
+.button,.text-link,.journey-action{font-weight:600;letter-spacing:.01em}
+input,textarea,select{font-size:16px;line-height:1.5}
+.brand{font-family:var(--font-site);font-size:27px;font-weight:700;letter-spacing:.07em;gap:12px;line-height:1}
+.brand small{font-family:var(--font-site);font-size:9px;font-weight:600;letter-spacing:.17em;line-height:1.2;margin-top:7px}
+.company-logo{display:flex;align-items:center;justify-content:center;width:68px;height:68px;padding:3px;background:#fff;border-radius:50%;flex-shrink:0;border:1px solid #d5e0ef;overflow:hidden}
+.company-logo img{display:block;width:100%;height:100%;object-fit:contain;max-width:none}
+footer .company-logo{width:78px;height:78px;padding:4px}
+html[data-theme=dark] .company-logo{background:#fff;border-color:#bfd0e8}
+header .brand{flex-shrink:0}
+@media(min-width:1051px) and (max-width:1200px){header{gap:12px}header .brand{font-size:23px;gap:9px}header .brand small{font-size:8px}.company-logo{width:59px;height:59px}nav{gap:12px}nav button{font-size:12px}}
+@media(max-width:1050px){nav button{font-size:16px}.company-logo{width:59px;height:59px}.brand{font-size:25px}}
+@media(max-width:540px){body{font-size:16px}.company-logo{width:54px;height:54px;padding:2px}.brand{font-size:22px;gap:8px}.brand small{font-size:7px;letter-spacing:.14em;margin-top:6px}.hero h1,.road-banner h1{letter-spacing:-.035em}footer .company-logo{width:68px;height:68px}nav button{font-size:16px}.chat-input input{font-size:16px}}
+@media(max-width:360px){.company-logo{width:47px;height:47px}.brand{font-size:20px;gap:6px}.brand small{font-size:6.5px}.theme-toggle,.mobile-toggle{min-width:42px;width:42px}header{gap:4px}}

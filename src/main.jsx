@@ -1,0 +1,20 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import "./styles/main.css";
+import "./styles/animations.css";
+import "./styles/themes.css";
+import "./styles/journey.css";
+import "./styles/motion-layout.css";
+import "./styles/brand.css";
+import "./styles/typography.css";
+import "./styles/interactions.css";
+import "./styles/compact-openings.css";
+import "./styles/highway-backdrop.css";
+import "./styles/about-refinement.css";
+import "./styles/company-profile.css";
+import "./styles/fleet-experience.css";
+import "./styles/compact-contact-fleet.css";
+import "./styles/service-footer.css";
+
+createRoot(document.getElementById("root")).render(<App />);
