@@ -1,4 +1,3 @@
-// Use these values in the admin select and persist the value as truckType.
 export const truckTypes = [
  {value:'10W',label:'10-Wheeler Wing Van'},
  {value:'12W',label:'12-Wheeler Wing Van'},

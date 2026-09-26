@@ -2,7 +2,6 @@ import trucks from '../data/trucks.json';
 import announcements from '../data/announcements.json';
 import { normalizeTrucks, normalizeAnnouncements } from './contentRecords';
 
-// Leave unset for local JSON. Set to /api or a public backend URL when ready.
 const apiBase = (import.meta.env.VITE_CONTENT_API_BASE_URL || '').replace(/\/$/, '');
 async function readCollection(collection, localRecords) {
   if (!apiBase) return localRecords;

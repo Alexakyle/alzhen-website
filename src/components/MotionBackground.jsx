@@ -1,6 +1,5 @@
 import React from 'react';
 import { Truck, Package, Leaf, Flag, Megaphone, Handshake, Send } from 'lucide-react';
-// Decorative motion only. Content remains readable and pointer interactions pass through.
 export default function MotionBackground(){
  return <div className="motion-atmosphere" aria-hidden="true"><div className="atmosphere-grid"/>
  <svg className="ambient-route" viewBox="0 0 600 220" fill="none" preserveAspectRatio="xMidYMid meet"><path d="M-40 180H165Q225 180 225 120T300 60H650" stroke="currentColor" strokeWidth="30" opacity=".12"/><path className="ambient-route-dashes" d="M-40 180H165Q225 180 225 120T300 60H650" stroke="currentColor" strokeWidth="2" strokeDasharray="9 12"/></svg>

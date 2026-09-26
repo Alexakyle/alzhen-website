@@ -1,4 +1,3 @@
-// Fixed client-approved FAQ content. No database or AI API is used.
 export const faqCategories = ["Trucks & Cargo", "Pickup & Delivery", "Rates & Payment", "Booking & POD", "Transit Time & Delivery", "Additional Charges"];
 export const faqEntries = [
 {"id": "vehicles", "category": "Trucks & Cargo", "question": "What trucks/vehicles do you have available?", "answer": "L300, 6-wheeler, and 10-wheeler / 12-wheeler Wing Van.", match: /available|vehicles|fleet|truck types|anong truck|sasakyan/},

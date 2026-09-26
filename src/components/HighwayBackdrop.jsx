@@ -1,7 +1,6 @@
 import React from 'react';
 import { Truck, Package, MapPin, Flag, Send, Megaphone, Handshake } from 'lucide-react';
 const motifs = {home: Truck, about: Flag, trucks: Package, announcements: Megaphone, careers: Handshake, contact: Send};
-// Background scenery is decorative, never a live shipment or location indicator.
 export default function HighwayBackdrop({page}) {
   const Motif = motifs[page] || Truck;
   return <div className="highway-backdrop" aria-hidden="true">

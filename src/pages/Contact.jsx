@@ -1,6 +1,6 @@
 import { contact } from "../data/profile";
 import React, { useState } from "react";
-import { ArrowUpRight, MapPin, CheckCircle2, Phone, Mail, Clock, MessageCircle, Truck } from "lucide-react";
+import { ArrowUpRight, MapPin, CheckCircle2, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import "../styles/contact.css";
 const truckTypes = ["10-Wheeler Wing Van", "12-Wheeler Wing Van", "6-Wheeler Closed Van", "L300 Van", "Others"];
 export default function Contact() {

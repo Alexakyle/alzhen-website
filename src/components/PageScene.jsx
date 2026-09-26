@@ -1,7 +1,6 @@
 import React from 'react';
 import {Truck,MapPin,Flag,Handshake,Send,ShieldCheck,ArrowUpRight,Package} from 'lucide-react';
 import TruckIllustration from './TruckIllustration';
-// Each page gets a distinct decorative scene; none represents live tracking or real photos.
 export default function PageScene({label}){
  const type=label==='OUR STORY'?'story':label==='LET’S HAUL'?'fleet':label==='GROW TOGETHER'?'people':'contact';
  return <div className={'page-scene scene-'+type} aria-hidden="true"><div className="scene-halo"/><div className="scene-sun"/><div className="scene-cloud"/><span className="scene-star">✦</span>

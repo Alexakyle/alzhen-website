@@ -1,4 +1,3 @@
-// Source: Alzhen Company Profile supplied September 2026.
 export const contact = {
   "address": "B7 L1 Estacio Ville, Brgy. Calzada, Taguig City",
   "phone": "0977 738 3546",

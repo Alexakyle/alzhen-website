@@ -1,4 +1,3 @@
-// Client fleet and delivery photographs; dedicated truck portraits are enhanced copies.
 export const galleryPhotos = [
   {
     "src": "/images/company/loading-metal.png",

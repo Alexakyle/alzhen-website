@@ -1,4 +1,3 @@
-// Company information supplied by Alzhen. Keep unconfirmed specifications out of these records.
 export const company = {
   name: "Alzhen Trucking Services",
   founded: "2009",

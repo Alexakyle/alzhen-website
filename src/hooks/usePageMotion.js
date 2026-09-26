@@ -1,6 +1,5 @@
 import {useEffect} from 'react';
 
-// Replays content entrances on navigation and observes newly rendered filter results.
 export default function usePageMotion(page, enabled){
  useEffect(()=>{
   const root=document.getElementById('main-content');

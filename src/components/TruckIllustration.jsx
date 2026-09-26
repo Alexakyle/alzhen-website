@@ -1,5 +1,4 @@
 import React from "react";
-// Decorative wing van illustration, not a technical drawing or an actual fleet photo.
 export default function TruckIllustration({ variant = "orange" }) {
   return (
     <svg
