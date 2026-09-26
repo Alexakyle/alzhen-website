@@ -9,4 +9,4 @@ npm test
 npm run build
 ```
 
-Inquiry forms currently validate entries but do not send or save messages. Truck and announcement records use local data unless a content API is configured. The FAQ chatbot uses fixed frontend responses.
+Inquiry forms send notifications through a server-side Mailjet endpoint when configured. Truck and announcement records use local data unless a content API is configured. The FAQ chatbot uses fixed frontend responses.

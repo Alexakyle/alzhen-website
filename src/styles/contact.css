@@ -70,3 +70,5 @@ html[data-theme=dark] .compact-contact h1 em,html[data-theme=dark] .compact-cont
 @media(max-width:600px){.compact-contact .contact-first{padding:30px 6%}.compact-contact .contact-destination-grid{grid-template-columns:1fr}.compact-contact .contact-heading h1{font-size:36px}.compact-contact .contact-next{flex-direction:column;gap:8px}.compact-contact .contact-opening{padding:38px 6%}.compact-contact .form-card{padding:20px}.compact-contact .location-canvas{min-height:290px}}
 @media(max-width:420px){.compact-contact .two-col{grid-template-columns:1fr}.compact-contact .form-card{padding:17px}.compact-contact .contact-form-hint{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.compact-contact *{animation:none!important;scroll-behavior:auto!important}}
+
+.inquiry-fields{border:0;padding:0;margin:0;min-width:0;display:contents}.inquiry-honeypot{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.form-card button:disabled{opacity:.65;cursor:wait}

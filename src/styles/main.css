@@ -783,7 +783,7 @@ select:focus {
   .mobile-toggle {
     display: block;
   }
-  nav {
+  header nav {
     display: none;
     position: absolute;
     top: 80px;
@@ -794,7 +794,7 @@ select:focus {
     padding: 20px 6%;
     align-items: stretch;
   }
-  nav.open {
+  header nav.open {
     display: flex;
     flex-direction: column;
     gap: 0;

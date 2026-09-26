@@ -16,5 +16,6 @@ import "./styles/company-profile.css";
 import "./styles/fleet-experience.css";
 import "./styles/compact-contact-fleet.css";
 import "./styles/service-footer.css";
+import "./styles/mobile.css";
 
 createRoot(document.getElementById("root")).render(<App />);

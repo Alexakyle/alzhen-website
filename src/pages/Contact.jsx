@@ -7,9 +7,30 @@ export default function Contact() {
   const [inquiry, setInquiry] = useState("Client");
   const [units, setUnits] = useState({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
-  const [clientTruck, setClientTruck] = useState("");
   const total = Object.values(units).reduce((sum, qty) => sum + (Number(qty) || 0), 0);
+  async function submitInquiry(event) {
+    event.preventDefault();
+    if (sending || sent) return;
+    if (!Object.keys(units).length) {
+      setError("Please select at least one truck type and enter its quantity.");
+      return;
+    }
+    const payload = {...Object.fromEntries(new FormData(event.currentTarget)), inquiry, units};
+    setSending(true);
+    setError("");
+    try {
+      const response = await fetch("/api/inquiry", {
+        method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(payload),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) throw new Error(result.error || "Online inquiries are temporarily unavailable. Please contact us by phone or email.");
+      setSent(true);
+    } catch (err) {
+      setError(err.message || "Unable to connect. Please try again later or contact us directly.");
+    } finally { setSending(false); }
+  }
   return <div className="journey-page contact-page compact-contact">
     <section className="contact-workspace" aria-label="Contact Alzhen">
       <aside className="contact-workspace-info">
@@ -25,32 +46,29 @@ export default function Contact() {
         <div className="contact-embedded-map"><iframe title="Google Maps address search for Alzhen Trucking" src={'https://www.google.com/maps?q='+encodeURIComponent(contact.address)+'&output=embed'} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen/><a href={'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(contact.address)} target="_blank" rel="noreferrer">Open address in Google Maps ↗</a></div>
       </aside>
       <div className="form-card">
-        <div className="tabs" aria-label="Inquiry type">{["Client", "Partner"].map(t => <button key={t} aria-pressed={inquiry === t} className={inquiry === t ? "selected" : ""} onClick={() => { setInquiry(t); setSent(false); setError(""); }}>{t} Inquiry</button>)}</div>
+        <div className="tabs" aria-label="Inquiry type">{["Client", "Partner"].map(t => <button key={t} disabled={sending} aria-pressed={inquiry === t} className={inquiry === t ? "selected" : ""} onClick={() => { setInquiry(t); setUnits({}); setSent(false); setError(""); }}>{t} Inquiry</button>)}</div>
         <h2>{inquiry === "Client" ? "Let’s plan your delivery." : "Let’s work together."}</h2>
         <p className="contact-form-hint">Just a few details to get started. <span>* Required</span></p>
-        <form key={inquiry} onChange={() => { setSent(false); setError(""); }} onSubmit={e => { e.preventDefault(); if(inquiry === "Partner" && !Object.keys(units).length) { setError("Please select at least one truck type and enter its quantity."); return; } setSent(true); }}>
+        <form key={inquiry} onChange={() => { setSent(false); setError(""); }} onSubmit={submitInquiry} aria-busy={sending}>
+          <fieldset disabled={sending} className="inquiry-fields">
           <div className="two-col">
             <label>Full name *<input name="fullName" required autoComplete="name" maxLength={120} placeholder="Your full name" /></label>
             <label>Company name <small>(optional)</small><input name="company" autoComplete="organization" maxLength={160} placeholder="Company / business" /></label>
             <label>Email address *<input name="email" type="email" required autoComplete="email" maxLength={254} placeholder="you@company.com" /></label>
             <label>Contact number *<input name="phone" type="tel" required autoComplete="tel" maxLength={30} placeholder="09XX XXX XXXX" /></label>
           </div>
-          {inquiry === "Client" ? <>
-            <label>Truck type needed *<select name="truckType" required value={clientTruck} onChange={e => setClientTruck(e.target.value)}><option value="">Select a truck type</option>{truckTypes.map(t => <option key={t}>{t}</option>)}</select></label>
-            {clientTruck === "Others" && <label>Please specify *<input name="otherTruck" required maxLength={120} placeholder="Truck type needed" /></label>}
-            <label>Message / additional details <small>(optional)</small><textarea name="message" rows={2} maxLength={3000} placeholder="Tell us a little about your delivery." /></label>
-          </> : <>
-            <label>Garage location (City) *<input name="garageCity" required maxLength={120} placeholder="e.g. Calamba City" /></label>
-            <fieldset className="truck-selection"><legend>Truck type & quantity *</legend><p>Select your trucks, then enter the number of units.</p>
+          {inquiry === "Partner" && <label>Garage location (City) *<input name="garageCity" required maxLength={120} placeholder="e.g. Calamba City" /></label>}
+            <fieldset className="truck-selection"><legend>{inquiry === "Client" ? "Trucks needed & quantity *" : "Truck type & quantity *"}</legend><p>Select one or more truck types, then enter the quantity for each.</p>
               {truckTypes.map(type => <div className="truck-choice" key={type}><label><input type="checkbox" checked={type in units} onChange={e => setUnits(prev => { const next = {...prev}; if(e.target.checked) next[type] = 1; else delete next[type]; return next; })} />{type}</label>{type in units && <input aria-label={`${type} quantity`} name={`quantity-${type}`} type="number" inputMode="numeric" min="1" max="9999" step="1" required value={units[type]} onChange={e => setUnits(prev => ({...prev, [type]:e.target.value}))} />}</div>)}
               {"Others" in units && <label className="other-truck">Specify other truck type *<input name="otherTruck" required maxLength={120} placeholder="e.g. 4-Wheeler Closed Van" /></label>}
               <div className="unit-total"><span>Number of units <small>· calculated automatically</small></span><output aria-live="polite">{total}</output><input type="hidden" name="numberOfUnits" value={total}/></div>
             </fieldset>
-          </>}
+          {inquiry === "Client" && <label>Message / additional details <small>(optional)</small><textarea name="message" rows={2} maxLength={3000} placeholder="Tell us a little about your delivery." /></label>}
+          </fieldset>
           {error && <p className="contact-error" role="alert">{error}</p>}
-          <button className="button" type="submit">Submit inquiry <ArrowUpRight size={17}/></button>
-          <p className="contact-demo-note">Email sending is not connected yet. This form does not send or save your details.</p>
-          {sent && <p className="success" role="status"><CheckCircle2 size={18}/>Your details are complete. Nothing has been sent yet.</p>}
+          <button className="button" type="submit" disabled={sending || sent}>{sending ? "Sending…" : sent ? "Inquiry submitted" : "Submit inquiry"} <ArrowUpRight size={17}/></button>
+          <p className="contact-demo-note">Your details will be emailed to our inquiry team so they can respond to your request.</p>
+          {sent && <p className="success" role="status"><CheckCircle2 size={18}/>Your inquiry has been accepted for email delivery. Thank you for contacting us!</p>}
         </form>
       </div>
     </section>

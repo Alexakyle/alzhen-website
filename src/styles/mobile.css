@@ -1,0 +1,33 @@
+@media (max-width: 600px) {
+  .form-card input:not([type=checkbox]):not([type=hidden]),
+  .form-card select, .form-card textarea, .faq-compose input {
+    font-size: 16px;
+    min-height: 44px;
+  }
+  .compact-contact .contact-workspace .truck-choice label {
+    min-height: 44px;
+    font-size: 13px;
+    flex: 1;
+  }
+  .compact-contact .contact-workspace .truck-choice input[type=number] {
+    width: 68px !important;
+    flex-shrink: 0;
+  }
+  .contact-form-hint {display:flex;flex-wrap:wrap;gap:6px 12px}
+  .contact-form-hint span {margin-left:0}
+  .form-card .tabs button, .mobile-toggle, .theme-toggle,
+  .faq-panel-head button, .faq-compose button,
+  .permit-lightbox-toolbar button {min-width:44px;min-height:44px}
+  .about-chapters {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 12px;padding:16px 5%}
+  .about-chapters button {white-space:normal;text-align:left;min-width:0;gap:6px;font-size:12px}
+  .about-chapters button svg {flex-shrink:0;margin-left:auto}
+  .about-page .road-museum .road-photo-wall {grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px}
+  .about-page .road-museum .road-photo-wall .photo-wall-card img {aspect-ratio:1.5}
+  .faq-launcher {bottom:calc(14px + env(safe-area-inset-bottom, 0px));right:14px}
+  body:has(.form-card :focus) .faq-launcher:not([aria-expanded=true]) {visibility:hidden}
+  .faq-panel {width:calc(100% - 20px);right:10px;bottom:calc(82px + env(safe-area-inset-bottom, 0px));max-height:calc(100dvh - 100px - env(safe-area-inset-bottom, 0px))}
+  footer {padding-bottom:calc(92px + env(safe-area-inset-bottom, 0px))}
+}
+@media (max-width:1050px) {
+  header #main-nav.open {max-height:calc(100dvh - var(--nav-height));overflow-y:auto;overscroll-behavior:contain}
+}
