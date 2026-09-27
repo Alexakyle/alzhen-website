@@ -1,5 +1,5 @@
 import { contact } from "../data/profile";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ArrowUpRight, MapPin, CheckCircle2, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import "../styles/contact.css";
 const truckTypes = ["10-Wheeler Wing Van", "12-Wheeler Wing Van", "6-Wheeler Closed Van", "L300 Van", "Others"];
@@ -7,6 +7,10 @@ export default function Contact() {
   const [inquiry, setInquiry] = useState("Client");
   const [units, setUnits] = useState({});
   const [sent, setSent] = useState(false);
+  const confirmation = useRef(null);
+  useEffect(() => {
+    if (sent) confirmation.current?.showModal();
+  }, [sent]);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const total = Object.values(units).reduce((sum, qty) => sum + (Number(qty) || 0), 0);
@@ -17,7 +21,8 @@ export default function Contact() {
       setError("Please select at least one truck type and enter its quantity.");
       return;
     }
-    const payload = {...Object.fromEntries(new FormData(event.currentTarget)), inquiry, units};
+    const form = event.currentTarget;
+    const payload = {...Object.fromEntries(new FormData(form)), inquiry, units};
     setSending(true);
     setError("");
     try {
@@ -26,6 +31,8 @@ export default function Contact() {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok || !result.ok) throw new Error(result.error || "Online inquiries are temporarily unavailable. Please contact us by phone or email.");
+      form.reset();
+      setUnits({});
       setSent(true);
     } catch (err) {
       setError(err.message || "Unable to connect. Please try again later or contact us directly.");
@@ -66,11 +73,18 @@ export default function Contact() {
           {inquiry === "Client" && <label>Message / additional details <small>(optional)</small><textarea name="message" rows={2} maxLength={3000} placeholder="Tell us a little about your delivery." /></label>}
           </fieldset>
           {error && <p className="contact-error" role="alert">{error}</p>}
-          <button className="button" type="submit" disabled={sending || sent}>{sending ? "Sending…" : sent ? "Inquiry submitted" : "Submit inquiry"} <ArrowUpRight size={17}/></button>
+          <button className="button" type="submit" disabled={sending || sent}>{sending ? "Sending…" : "Submit inquiry"} <ArrowUpRight size={17}/></button>
           <p className="contact-demo-note">Your details will be emailed to our inquiry team so they can respond to your request.</p>
-          {sent && <p className="success" role="status"><CheckCircle2 size={18}/>Your inquiry has been accepted for email delivery. Thank you for contacting us!</p>}
+
         </form>
       </div>
     </section>
+    <dialog ref={confirmation} className="inquiry-confirmation" aria-labelledby="inquiry-success-title" onClose={() => setSent(false)}>
+      <CheckCircle2 size={40} aria-hidden="true"/>
+      <h2 id="inquiry-success-title">Inquiry submitted!</h2>
+      <p>Thank you for contacting Alzhen. Your inquiry has been accepted for email delivery to our team.</p>
+      <p className="confirmation-note">Your form is cleared and ready for a new inquiry.</p>
+      <button className="button" autoFocus onClick={() => confirmation.current.close()}>Got it</button>
+    </dialog>
   </div>;
 }

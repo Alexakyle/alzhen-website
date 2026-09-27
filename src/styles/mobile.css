@@ -31,3 +31,34 @@
 @media (max-width:1050px) {
   header #main-nav.open {max-height:calc(100dvh - var(--nav-height));overflow-y:auto;overscroll-behavior:contain}
 }
+
+/* Compact inquiry layout, with comfortable touch targets. */
+.compact-contact .contact-workspace .form-card { padding: 18px; }
+.compact-contact .contact-workspace .form-card form { gap: 8px; }
+.compact-contact .contact-workspace .form-card h2 { font-size: 22px; margin-bottom: 5px; }
+.compact-contact .contact-workspace .truck-selection { padding: 8px 10px; gap: 3px 12px; }
+.compact-contact .contact-workspace .truck-selection > p { margin: 0 0 4px; }
+.compact-contact .contact-workspace .contact-demo-note { margin: 0; font-size: 11px; }
+.inquiry-confirmation { width: min(380px, calc(100vw - 32px)); box-sizing: border-box; border: 1px solid #b9cfde; border-radius: 22px; padding: 28px; color: #10314d; background: #fff; text-align: center; box-shadow: 0 24px 80px #031c4050; }
+.inquiry-confirmation::backdrop { background: #041c3b85; backdrop-filter: blur(4px); }
+.inquiry-confirmation > svg { color: #498b38; }
+.inquiry-confirmation h2 { font-size: 24px; margin: 12px 0; }
+.inquiry-confirmation p { font-size: 14px; line-height: 1.6; }
+.inquiry-confirmation .confirmation-note { font-size: 12px; color: #52687a; }
+.inquiry-confirmation .button { width: 100%; margin-top: 10px; min-height: 44px; }
+@media (max-width: 600px) {
+  .compact-contact .contact-workspace .form-card { padding: 14px; }
+  .compact-contact .contact-workspace .two-col { gap: 8px; }
+  .compact-contact .contact-workspace .truck-choice { padding: 0; }
+  .compact-contact .contact-workspace .truck-selection { gap: 0; }
+  .compact-contact .contact-workspace .form-card label { gap: 4px; }
+}
+
+@media (min-width: 360px) and (max-width: 600px) {
+  .compact-contact .contact-workspace .two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .compact-contact .contact-workspace .truck-selection { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 10px; }
+  .compact-contact .contact-workspace .truck-choice { flex-wrap: wrap; align-content: start; }
+  .compact-contact .contact-workspace .truck-choice label { font-size: 12px; line-height: 1.35; }
+  .compact-contact .contact-workspace .truck-choice input[type="number"] { margin: 0 0 5px 22px; }
+  .compact-contact .contact-workspace .unit-total small { display: none; }
+}
