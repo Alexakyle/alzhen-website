@@ -59,3 +59,12 @@ test('client quantities reject empty, zero, negative and fractional requests', (
     assert.throws(() => validateInquiry({...client, units}));
   }
 });
+
+test('inquiry subject uses the visitor name without a random identifier', () => {
+  const data = validateInquiry(client);
+  const first = mailjetMessage(data, env).Messages[0];
+  const second = mailjetMessage({...data, fullName:'Another Client'}, env).Messages[0];
+  assert.equal(first.From.Name, 'Alzhen Inquiry');
+  assert.match(first.Subject, /^Alzhen Inquiry — Client Inquiry — Test Client$/);
+  assert.notEqual(first.Subject, second.Subject);
+});

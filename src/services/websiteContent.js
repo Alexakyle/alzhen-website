@@ -15,3 +15,8 @@ export async function getTrucks() {
 export async function getAnnouncements() {
   return normalizeAnnouncements(await readCollection('announcements', announcements));
 }
+
+export async function getCareers() {
+  const records = await readCollection('careers', []);
+  return normalizeAnnouncements(records).map(job => ({...job, qualifications: records.find(item => item.id === job.id)?.qualifications || ''}));
+}

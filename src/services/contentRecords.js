@@ -39,9 +39,9 @@ function validDate(value) {
   return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value ? value : null;
 }
 export function normalizeAnnouncements(value) {
-  return records(value).map(item => {
+  return records(value).filter(item => item.status !== "archived").map(item => {
     if (!text(item.title)) throw new Error('Announcement title is required.');
     return { id: item.id, title: text(item.title), content: text(item.content),
-      imageUrl: imageUrl(item.imageUrl), date: validDate(item.date), isSample: item.isSample === true };
-  }).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+      createdAt: text(item._createdAt), imageUrl: imageUrl(item.imageUrl), date: validDate(item.date), isSample: item.isSample === true };
+  }).sort((a, b) => (b.createdAt || b.date || '').localeCompare(a.createdAt || a.date || ''));
 }

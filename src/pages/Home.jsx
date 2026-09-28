@@ -13,7 +13,11 @@ import {
 import { photo } from "../data/site";
 import JourneyCard from "../components/JourneyCard";
 import Fleet from "../components/Fleet";
+import { getAnnouncements } from "../services/websiteContent";
+import useWebsiteContent from "../hooks/useWebsiteContent";
 export default function Home({ go }) {
+  const {items: announcements, loading: newsLoading, error: newsError} = useWebsiteContent(getAnnouncements);
+  const latest = announcements[0];
   const [region, setRegion] = useState("Luzon");
   const btn = (label, p, secondary = false) => (
     <button className={secondary ? "button secondary" : "button"} onClick={() => go(p)}>
@@ -198,12 +202,14 @@ export default function Home({ go }) {
           </button>
         </div>
         <div className="announcement-preview">
-          <span className="tag">WEBSITE UPDATE · SAMPLE</span>
-          <h3>A new home for Alzhen Trucking</h3>
-          <p>A preview of where company news, service updates, and advisories will appear.</p>
-          <button className="text-link" onClick={() => go("announcements")}>
-            Read update <ArrowRight size={18} />
-          </button>
+          {newsLoading ? <p role="status">Loading company updates…</p> : newsError ? <p role="status">Company updates are temporarily unavailable.</p> : latest ? <>
+            <span className="tag">LATEST COMPANY UPDATE{latest.date ? ` · ${latest.date}` : ''}</span>
+            <h3>{latest.title}</h3>
+            <p>{latest.content.length > 220 ? latest.content.slice(0,220).replace(/\s+\S*$/, '') + '…' : latest.content}</p>
+            <button className="text-link" onClick={() => go("announcements")}>
+              Read update <ArrowRight size={18} />
+            </button>
+          </> : <p>No announcements yet. Check back for company updates.</p>}
         </div>
       </section>
     </div>

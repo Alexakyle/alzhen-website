@@ -34,6 +34,7 @@ export function validateInquiry(body) {
 const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[char]));
 
 export function mailjetMessage(data, env) {
+
   const lines = [
     `${data.inquiry} inquiry — Alzhen Trucking Services`, '',
     `Full name: ${data.fullName}`, `Company: ${data.company || 'Not provided'}`,
@@ -50,12 +51,12 @@ export function mailjetMessage(data, env) {
     const value = separator < 0 ? '' : line.slice(separator + 1).trim();
     return `<tr><td style="padding:12px;border-bottom:1px solid #e4eaf0;color:#526478;width:35%;vertical-align:top">${escapeHtml(label)}</td><td style="padding:12px;border-bottom:1px solid #e4eaf0;color:#15354f;white-space:pre-wrap;word-break:break-word">${escapeHtml(value)}</td></tr>`;
   }).join('');
-  const html = `<!doctype html><html><body style="margin:0;background:#f1f5f9;font-family:Arial,sans-serif"><table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr><td align="center" style="padding:24px 12px"><table role="presentation" width="600" style="width:100%;max-width:600px;background:#fff;border-radius:12px;overflow:hidden" cellspacing="0" cellpadding="0"><tr><td style="background:#103859;padding:28px;color:white;border-bottom:5px solid #ffd04a"><div style="font-size:12px;letter-spacing:2px;color:#ffd04a">ALZHEN TRUCKING SERVICES</div><h1 style="font-size:25px;margin:12px 0 0">New ${data.inquiry.toLowerCase()} inquiry</h1></td></tr><tr><td style="padding:24px"><p style="color:#526478;line-height:1.6">A website visitor has submitted the following details.</p><table width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;line-height:1.6">${rows}</table><p style="margin-top:24px;font-size:14px;color:#526478">Use Reply in your email app to respond directly to the person who submitted this inquiry.</p></td></tr><tr><td style="padding:18px 24px;background:#eef3f7;font-size:12px;color:#526478">Alzhen Website · ${data.inquiry} Inquiry</td></tr></table></td></tr></table></body></html>`;
+  const html = `<!doctype html><html><body style="margin:0;background:#f1f5f9;font-family:Arial,sans-serif"><table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr><td align="center" style="padding:24px 12px"><table role="presentation" width="600" style="width:100%;max-width:600px;background:#fff;border-radius:12px;overflow:hidden" cellspacing="0" cellpadding="0"><tr><td style="background:#103859;padding:28px;color:white;border-bottom:5px solid #ffd04a"><div style="font-size:12px;letter-spacing:2px;color:#ffd04a">ALZHEN TRUCKING SERVICES</div><h1 style="font-size:25px;margin:12px 0 0">New ${data.inquiry.toLowerCase()} inquiry</h1></td></tr><tr><td style="padding:24px"><p style="color:#526478;line-height:1.6">A website visitor has submitted the following details.</p><table width="100%" cellspacing="0" cellpadding="0" style="font-size:14px;line-height:1.6">${rows}</table><p style="margin-top:24px;font-size:14px;color:#526478">Use Reply in your email app to respond directly to the person who submitted this inquiry.</p></td></tr><tr><td style="padding:18px 24px;background:#eef3f7;font-size:12px;color:#526478">Alzhen Inquiry · ${data.inquiry} Inquiry</td></tr></table></td></tr></table></body></html>`;
   return { Messages: [{
-    From: { Email: env.MAILJET_FROM_EMAIL, Name: 'Alzhen Website' },
+    From: { Email: env.MAILJET_FROM_EMAIL, Name: 'Alzhen Inquiry' },
     To: [{ Email: env.INQUIRY_TO_EMAIL }],
     ReplyTo: { Email: data.email, Name: data.fullName },
-    Subject: `Alzhen Website — ${data.inquiry} Inquiry`,
+    Subject: `Alzhen Inquiry — ${data.inquiry} Inquiry — ${data.fullName}`,
     TextPart: lines.join('\n'),
     HTMLPart: html,
   }] };

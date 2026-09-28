@@ -81,9 +81,8 @@ export default function Contact() {
     </section>
     <dialog ref={confirmation} className="inquiry-confirmation" aria-labelledby="inquiry-success-title" onClose={() => setSent(false)}>
       <CheckCircle2 size={40} aria-hidden="true"/>
-      <h2 id="inquiry-success-title">Inquiry submitted!</h2>
-      <p>Thank you for contacting Alzhen. Your inquiry has been accepted for email delivery to our team.</p>
-      <p className="confirmation-note">Your form is cleared and ready for a new inquiry.</p>
+      <h2 id="inquiry-success-title">Thank you for contacting Alzhen Trucking Services!</h2>
+      <p>Your inquiry has been successfully submitted. Our team will get back to you as soon as possible.</p>
       <button className="button" autoFocus onClick={() => confirmation.current.close()}>Got it</button>
     </dialog>
   </div>;
